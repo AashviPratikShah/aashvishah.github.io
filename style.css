@@ -1,0 +1,303 @@
+:root{
+  --bg: #ffffff;
+  --primary: #a78bfa;
+  --lavender: #c7b3ff;
+  --mint: #b6f0d3;
+  --pink: #ffd6e0;
+  --muted: #6b7280;
+  --card-bg: #ffffffaa;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 14px;
+  --max-width: 1100px;
+  --gap: 20px;
+  --shadow: 0 8px 30px rgba(99,102,241,0.08);
+}
+
+* { box-sizing: border-box; }
+html,body { height:100%; }
+body{
+  margin:0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.55;
+}
+
+/* container/grid */
+.container{ width:94%; max-width:var(--max-width); margin:0 auto; }
+.grid-two{ display:grid; grid-template-columns: 1fr 380px; gap:var(--gap); align-items:start; }
+@media (max-width:1000px){ .grid-two{ grid-template-columns:1fr; } }
+
+/* header */
+.header-inner{ display:flex; align-items:center; justify-content:space-between; padding:12px 0; gap:12px; }
+.site-header{ position:sticky; top:0; z-index:40; backdrop-filter: blur(6px); background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.7)); border-bottom:1px solid rgba(15,23,42,0.04); }
+
+.logo{ font-weight:700; color:var(--primary); text-decoration:none; font-family: "Montserrat"; font-size:1.05rem; }
+
+.nav{ display:flex; gap:8px; align-items:center; position: relative; }
+.nav a{ padding:8px 10px; text-decoration:none; color:var(--muted); font-weight:500; border-radius:8px; font-size:0.95rem; }
+.nav a:hover, .nav a.active{ background: rgba(167,139,250,0.06); color:var(--primary); }
+.nav .cta{ padding:8px 12px; background:var(--primary); color:#fff; border-radius:10px; box-shadow:var(--shadow); text-decoration:none; }
+
+.header-actions{ display:flex; align-items:center; gap:10px; }
+.motion-toggle{ background:transparent; border:1px solid rgba(15,23,42,0.06); padding:8px 10px; border-radius:8px; font-size:16px; cursor:pointer; }
+.motion-toggle.active{ background:var(--primary); color:#fff; border-color:transparent; box-shadow:var(--shadow); }
+
+.nav-toggle{ display:none; background:none; border:0; font-size:20px; cursor:pointer; }
+
+/* hero */
+.hero{ position:relative; padding:56px 0 36px; overflow:hidden; min-height:55vh; display:flex; align-items:center; }
+.dna-bg{ position:absolute; right:-10%; top:-10%; width:70%; height:120%; opacity:0.12; pointer-events:none; }
+.dna-bg .pair{ fill:var(--lavender); }
+
+.hero-inner{ display:flex; gap:28px; align-items:stretch; width:100%; }
+.hero-content{ flex:1; max-width:720px; }
+.name{ font-family: "Montserrat"; font-size: clamp(2rem, 5vw, 3.2rem); margin:0 0 6px; color:var(--primary); letter-spacing:-0.02em; }
+.tagline{ margin:0 0 14px; font-weight:600; color:#4b5563; }
+.lead{ margin-bottom:16px; color:#374151; }
+.hero-cta .btn{ margin-right:10px; }
+
+.hero-card{
+  width:320px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.65));
+  border-radius:var(--radius);
+  padding:16px;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(167,139,250,0.08);
+}
+
+/* sections */
+.section{ padding:44px 0; }
+.section h2{ color:var(--primary); font-family: "Montserrat"; margin-top:0; margin-bottom:12px; font-size:1.35rem; }
+.card{ background:#fff; padding:16px; border-radius:12px; box-shadow: 0 6px 20px rgba(15,23,42,0.04); border:1px solid rgba(10,10,10,0.02); }
+.pastel{ background: linear-gradient(180deg, rgba(247,244,255,0.6), rgba(255,250,250,0.6)); }
+
+/* achievements */
+.achievements-list{ list-style:none; padding:0; margin:10px 0 0; display:grid; gap:10px; }
+.achievements-list li{ padding:14px; border-radius:10px; background:var(--glass); display:flex; align-items:center; gap:12px; box-shadow: 0 4px 16px rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.06); transition:transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s cubic-bezier(.2,.9,.2,1), background .3s; position:relative; overflow:visible; }
+.achievements-list li:focus, .achievements-list li:hover{ transform:translateY(-6px) scale(1.025); box-shadow: 0 12px 32px rgba(167,139,250,0.16); background: linear-gradient(90deg, #f7f4ff 60%, #e0f7fa 100%); }
+.achievements-list .tag{ width:36px; height:36px; display:inline-grid; place-items:center; background:linear-gradient(180deg,var(--lavender),var(--primary)); color:white; border-radius:10px; font-weight:700; font-size:1.1rem; box-shadow: 0 2px 8px rgba(167,139,250,0.10); transition:background .3s; }
+.achievements-list li:focus .tag, .achievements-list li:hover .tag{ background:linear-gradient(180deg,#a78bfa,#b6f0d3); }
+
+/* projects */
+.projects-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:12px; }
+@media (max-width:840px){ .projects-grid{ grid-template-columns:1fr; } }
+.project-card{ padding:16px; border-radius:12px; background:#fff; border:1px solid rgba(167,139,250,0.06); transition:transform .25s ease, box-shadow .25s ease; }
+.project-card:focus, .project-card:hover{ transform:translateY(-6px); box-shadow: 0 18px 40px rgba(15,23,42,0.06); }
+
+/* skills */
+.skills-grid{ display:grid; grid-template-columns: repeat(2,1fr); gap:16px; margin-top:14px; align-items:start; }
+@media (max-width:900px){ .skills-grid{ grid-template-columns:1fr; } }
+.skill{ background:#fff; padding:12px; border-radius:12px; box-shadow: 0 6px 18px rgba(16,24,40,0.04); border:1px solid rgba(10,10,10,0.02); }
+.skill-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; font-weight:600; color:#374151; }
+.skill-percent{ font-weight:700; color:var(--primary); min-width:36px; text-align:right; }
+
+/* skill bar */
+.skill-bar{ background: rgba(15,23,42,0.04); height:14px; border-radius:10px; overflow:hidden; position:relative; }
+.skill-bar .fill{ height:100%; width:0%; border-radius:10px; background: linear-gradient(90deg, var(--lavender), var(--primary)); box-shadow: 0 6px 20px rgba(167,139,250,0.12); transform-origin: left center; transition: width 1.1s cubic-bezier(.2,.9,.2,1); }
+
+/* hobbies */
+.hobbies-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:14px; margin-top:12px; }
+@media (max-width:1000px){ .hobbies-grid{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width:600px){ .hobbies-grid{ grid-template-columns:1fr; } }
+.hobby{ background: #fff; padding:14px; border-radius:12px; text-align:center; box-shadow: 0 6px 18px rgba(16,24,40,0.04); border:1px solid rgba(10,10,10,0.02); transition: transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s cubic-bezier(.2,.9,.2,1), background .3s; position: relative; overflow: hidden; cursor: pointer; outline: none; }
+.hobby:focus, .hobby:hover{ transform: translateY(-8px) scale(1.045) rotate(-1deg); box-shadow: 0 18px 40px rgba(15,23,42,0.10); background: linear-gradient(120deg, #f7f4ff 60%, #e0f7fa 100%); }
+.hobby:focus{ box-shadow: 0 0 0 3px var(--accent, #4fd1c5); }
+.hobby .card-shine{ pointer-events: none; position: absolute; top: 0; left: -60%; width: 60%; height: 100%; background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.0) 100%); filter: blur(2px); z-index: 2; }
+.hobby svg{ width:36px; height:36px; margin-bottom:8px; fill:var(--primary); transition: fill .3s; }
+.hobby:focus svg, .hobby:hover svg{ fill: #a78bfa; }
+
+/* --- Hobbies PNG icons --- */
+.hobby-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px #a78bfa33);
+}
+
+/* --- Hobby sparkly burst --- */
+.hobby-spark {
+  pointer-events: none;
+  position: absolute;
+  z-index: 10;
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 1px 4px #a78bfa33;
+  will-change: transform, opacity;
+}
+.hobby {
+  position: relative;
+  overflow: visible;
+}
+
+/* contact */
+.contact-card form label{ display:block; margin-bottom:10px; }
+.contact-card input, .contact-card textarea{ width:100%; padding:10px; border-radius:8px; border:1px solid rgba(15,23,42,0.08); background:#fff; font-size:0.95rem; }
+.form-actions{ margin-top:12px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+
+/* social list */
+.social-list{ list-style:none; padding:0; margin:10px 0 0; display:grid; gap:8px; }
+.social-list a{ color:var(--muted); text-decoration:none; font-weight:600; transition: transform .22s cubic-bezier(.2,.9,.2,1), color .22s; }
+.social-list a:hover{ color:var(--primary); transform:translateX(6px); transition:transform .18s ease; }
+
+/* --- Socials trailing underline --- */
+.social-underline {
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s cubic-bezier(.2,.9,.2,1);
+  pointer-events: none;
+}
+
+/* buttons */
+.btn{
+  display:inline-block; padding:10px 16px; border-radius:12px; text-decoration:none;
+  background:var(--primary); color:#fff; font-weight:600; transition:transform .18s ease, box-shadow .18s ease;
+  box-shadow: 0 8px 24px rgba(167,139,250,0.12);
+}
+.btn:hover{ transform:translateY(-4px); box-shadow: 0 12px 36px rgba(167,139,250,0.18); }
+.btn-ghost{ background:transparent; border:1px solid rgba(15,23,42,0.06); color:var(--primary); box-shadow:none; }
+
+/* footer */
+.site-footer{ padding:22px 0; border-top:1px solid rgba(15,23,42,0.04); margin-top:30px; }
+.footer-inner{ display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.footer-inner a{ color:var(--muted); text-decoration:none; }
+
+/* small utilities */
+.muted{ color:var(--muted); font-size:0.95rem; }
+.small{ font-size:0.85rem; color:var(--muted); }
+.mt{ margin-top:18px; }
+
+@media (max-width:900px){
+  .nav { display:none; position:fixed; top:64px; right:12px; background: white; border-radius:10px; box-shadow: 0 10px 30px rgba(2,6,23,0.12); flex-direction:column; min-width:220px; padding:10px; z-index:60; }
+  .nav a { display:block; margin:6px 0; padding:10px; }
+  .nav-toggle{ display:block; }
+  .hero-inner{ flex-direction:column; gap:18px; }
+  .hero-card{ width:100%; order:2; }
+}
+
+/* reduced motion: disable transitions & animations */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+  .dna-bg { opacity: 0.06 !important; }
+  .skill-bar .fill { transition: none !important; }
+}
+
+/* --- Card shine effect (for hobbies, cards, etc.) --- */
+.card-shine {
+  pointer-events: none;
+  position: absolute;
+  top: 0; left: -60%;
+  width: 60%; height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.0) 100%);
+  filter: blur(2px);
+  z-index: 2;
+}
+
+/* --- Ripple effect for buttons --- */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(167,139,250,0.18);
+  pointer-events: none;
+  width: 60px; height: 60px;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 10;
+}
+
+/* --- Nav underline effect --- */
+.nav-underline {
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: var(--accent, #4fd1c5);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s cubic-bezier(.2,.9,.2,1);
+  pointer-events: none;
+}
+
+/* --- Nav underline global (active/hover) --- */
+.nav-underline-global {
+  display: block;
+  position: absolute;
+  height: 2.5px;
+  background: var(--accent, #4fd1c5);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 1;
+  transition: all .22s cubic-bezier(.2,.9,.2,1);
+}
+.nav {
+  position: relative;
+}
+
+/* --- Confetti for achievements --- */
+.confetti {
+  pointer-events: none;
+  position: absolute;
+  z-index: 10;
+  border-radius: 50%;
+  opacity: 0.7;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  will-change: transform, opacity;
+}
+.achievements-list li {
+  position: relative;
+  overflow: visible;
+}
+
+/* --- Hobbies: pointer and focus for bounce/click --- */
+.hobby {
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow .22s, background .3s, transform .22s;
+}
+.hobby:focus {
+  box-shadow: 0 0 0 3px var(--accent, #4fd1c5);
+}
+
+/* --- Social float (subtle) --- */
+.social-list a {
+  transition: transform .22s cubic-bezier(.2,.9,.2,1), color .22s;
+}
+
+/* --- Socials section polish --- */
+#socials {
+  margin-top: 32px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(79,209,197,0.08);
+  background: linear-gradient(120deg, #f7f4ff 60%, #e0f7fa 100%);
+  transition: background 0.7s, box-shadow 0.7s;
+}
+#socials .social-list {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+#socials .social-list a {
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.22s, transform 0.18s;
+  display: inline-block;
+  outline: none;
+}
+#socials .social-list a:focus {
+  box-shadow: 0 0 0 3px var(--accent, #4fd1c5);
+  border-radius: 6px;
+}
